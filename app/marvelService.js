@@ -31,7 +31,6 @@ this.removeFromTeam = function removeFromTeam(){
 
 this.getMarvelCharacters = function getMarvelCharacters(callWhenDone){
   $.get(baseUrl+'characters'+key, function(response){
-    debugger
     marvelCharacters = response.data.results
     callWhenDone(marvelCharacters)
   })
