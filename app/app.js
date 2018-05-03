@@ -1,5 +1,6 @@
-var test = new MarvelService()
+var app = {
+  controllers:{
+    marvelController: new MarvelController()
+  }
+}
 
-test.getMarvelCharacters(function(data){
-console.log(data)
-})
