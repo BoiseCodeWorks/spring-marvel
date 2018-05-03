@@ -1,4 +1,4 @@
-function MarvelService() {
+function MarvelService(callback) {
   //  PRIVATE
   var key = "?apikey=e44062bbc76b37176b08325d5265a0f3";
   var baseUrl = "http://gateway.marvel.com/v1/public/";
@@ -26,6 +26,7 @@ function MarvelService() {
   };
 
   this.removeFromTeam = function removeFromTeam(removeId, draw) {
+    debugger
     // This is for removing characters from myTeam
     var removeMember = myTeam.find(function(char){
       return char.id == removeId
@@ -40,10 +41,12 @@ function MarvelService() {
 
   };
 
-  this.getMarvelCharacters = function getMarvelCharacters(cb) {
+  function getMarvelCharacters() {
     $.get(baseUrl + "characters" + key, function(response) {
       marvelCharacters = response.data.results;
-      cb(marvelCharacters);
+      callback(marvelCharacters);
     });
   };
+
+  getMarvelCharacters();
 }

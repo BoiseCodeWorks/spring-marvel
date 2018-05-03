@@ -1,6 +1,6 @@
 function MarvelController() {
   // Private
-  var marvelService = new MarvelService();
+  var marvelService = new MarvelService(drawMarvel);
 
   function drawMarvel(chars) {
     var template = "<h1>Marvel Characters</h1>";
@@ -29,7 +29,7 @@ function MarvelController() {
     for (let i = 0; i < chars.length; i++) {
       const char = chars[i];
       template += `
-  <div>
+    <div>
           <img class="marvelPic" src="${char.thumbnail.path}.${
         char.thumbnail.extension
       }" alt="">
@@ -39,7 +39,7 @@ function MarvelController() {
           }</p>
           <button onclick="app.controllers.marvelController.removeFromTeam(${char.id})">Remove From Team</button>
         </div>
-  `;
+    `;
     }
     document.getElementById("myTeam").innerHTML = template;
   }
@@ -53,8 +53,4 @@ function MarvelController() {
   this.removeFromTeam = function removeFromTeam(id) {
     marvelService.removeFromTeam(id, drawMyTeam)
   };
-
-
-  
-  marvelService.getMarvelCharacters(drawMarvel);
 }
