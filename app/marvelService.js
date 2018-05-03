@@ -21,8 +21,10 @@ this.getMyTeam = function getMyTeam(){
   return myTeam
 }
 
-this.addMyTeam = function addMyTeam(){
+this.addMyTeam = function addMyTeam(id, cb){
   // This is the function responsible for adding characters
+//add to team
+cb(myTeam)
 }
 
 this.removeFromTeam = function removeFromTeam(){
